@@ -5,7 +5,7 @@ export default class LineString implements Geometry {
    private points?: Array<Point>;
 
   constructor(points?: Array<Point>) {
-   this.points = points ;
+   this.points = points;
   }
   getNumPoints(): number {
     if (null == this.points)
@@ -19,6 +19,13 @@ export default class LineString implements Geometry {
 
   getType(): string {
     return "LineString";
+  }
+
+  isEmpty(): boolean {
+    if (null == this.points)
+        return true ;
+    else
+        return false ;
   }
 
 }
