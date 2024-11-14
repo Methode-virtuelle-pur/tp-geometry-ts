@@ -34,4 +34,8 @@ export default class LineString implements Geometry {
     });
   }
 
+  clone(): LineString {
+    return new LineString(this.points)
+  }
+
 }

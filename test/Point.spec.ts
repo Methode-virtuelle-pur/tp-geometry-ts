@@ -14,6 +14,7 @@ describe("test Point", () => {
         expect(p.getCoordinate()).to.deep.equal([3.0,4.0]);
         expect(p.x()).to.equal(3.0);
         expect(p.y()).to.equal(4.0);
+        expect(p.getType()).to.equal("Point");
     });
 
     it("test isEmpty", () => {
@@ -31,5 +32,15 @@ describe("test Point", () => {
         expect(p1.getCoordinate()).to.deep.equal([4.0,5.0]);
         expect(p2.getCoordinate()).to.deep.equal([NaN,NaN]);
     });
-});
+
+    it("test clone", () => {
+        const p = new Point([3.0,4.0]);
+        const p_clone = p.clone()
+        expect(p_clone.getCoordinate()).to.deep.equal([3.0,4.0]);
+        expect(p.x()).to.equal(3.0);
+        expect(p.y()).to.equal(4.0);
+        expect(p.getType()).to.equal("Point");
+
+    })
+})
 
