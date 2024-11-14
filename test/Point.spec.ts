@@ -22,5 +22,14 @@ describe("test Point", () => {
         expect(p1.isEmpty()).to.equal(false);
         expect(p2.isEmpty()).to.equal(true);
     });
+
+    it("test translate", () => {
+        const p1 = new Point([3.0,4.0]);
+        const p2 = new Point();
+        p1.translate(1.0,1.0)
+        p2.translate(1.0,1.0)
+        expect(p1.getCoordinate()).to.deep.equal([4.0,5.0]);
+        expect(p2.getCoordinate()).to.deep.equal([NaN,NaN]);
+    });
 });
 

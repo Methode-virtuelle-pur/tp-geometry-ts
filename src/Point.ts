@@ -30,4 +30,9 @@ export default class Point implements Geometry {
   isEmpty(): boolean {
     return isNaN(this.coordinate[0]) || isNaN(this.coordinate[1]);
   }
+
+  translate(dx: number, dy: number) {
+    this.coordinate[0] = this.coordinate[0] + dx
+    this.coordinate[1] = this.coordinate[1] + dy
+  }
 }

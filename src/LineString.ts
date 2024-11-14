@@ -28,4 +28,10 @@ export default class LineString implements Geometry {
         return false ;
   }
 
+  translate(dx: number, dy: number) {
+    this.points.forEach(pt => {
+        pt.translate(dx,dy)
+    });
+  }
+
 }

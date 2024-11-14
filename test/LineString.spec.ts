@@ -27,4 +27,17 @@ describe("test LineString", () => {
         expect(l.isEmpty()).to.equal(false);
         expect(l2.isEmpty()).to.equal(true);
     });
+
+    it("test translate", () => {
+        const p1 = new Point([3.0,4.0]);
+        const p2 = new Point([5.0,6.0]);
+        const l = new LineString([p1,p2]);
+        l.translate(1.0,1.0);
+        const pt_result = new Point([4.0,5.0])
+        expect(l.getPointN(0)).to.deep.equal(pt_result);
+        
+        
+    });
+
+    
 });
