@@ -35,7 +35,11 @@ export default class LineString implements Geometry {
   }
 
   clone(): LineString {
-    return new LineString(this.points)
+    let l : Array<Point> = [];
+    for (const point of this.points){
+      l.push(point.clone());
+    }
+    return new LineString(l);
   }
 
 }

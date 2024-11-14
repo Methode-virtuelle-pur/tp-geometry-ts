@@ -37,6 +37,6 @@ export default class Point implements Geometry {
   }
 
   clone(): Point {
-    return new Point(this.coordinate) ;
+    return new Point([this.x(),this.y()]) ;
   }
 }
