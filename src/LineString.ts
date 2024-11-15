@@ -1,6 +1,7 @@
 import Point from "./Point";
 import Geometry from "./Geometry";
 import Envelope from "./Envelope";
+import GeometryVisitor from "./GeometryVisitor";
 
 export default class LineString implements Geometry {
    private points?: Array<Point>;
@@ -57,6 +58,10 @@ export default class LineString implements Geometry {
     const ymax = Math.max(...yVals);
 
     return new Envelope([xmin, ymin], [xmax, ymax]);
+  }
+
+  accept(visitor: GeometryVisitor): void {
+    visitor.visitLineString(this);
   }
 
 }
