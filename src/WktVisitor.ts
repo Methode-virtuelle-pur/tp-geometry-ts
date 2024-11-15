@@ -3,11 +3,10 @@ import Point from "./Point";
 import LineString from "./LineString";
 
 export default class WktVisitor implements GeometryVisitor {
-
-    constructor(
-        private buffer = "" 
-    ){
-
+    private buffer : string
+    
+    constructor(){
+        this.buffer = ""
     }
 
     visitPoint(point: Point): void {

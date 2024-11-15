@@ -1,12 +1,14 @@
 import Coordinate from "./Coordinate";
-import Geometry from "./Geometry";
+
 import Envelope from "./Envelope";
 import GeometryVisitor from "./GeometryVisitor";
+import AbstractGeometry from "./AbstractGeometry";
 
-export default class Point implements Geometry {
+export default class Point extends AbstractGeometry {
   private coordinate?: Coordinate;
 
   constructor(coordinate?: Coordinate) {
+    super();
     if (undefined == coordinate)
       this.coordinate = [NaN,NaN] ;
     else
@@ -53,5 +55,5 @@ export default class Point implements Geometry {
   accept(visitor: GeometryVisitor): void {
     visitor.visitPoint(this);
   } 
-  
+
 }
