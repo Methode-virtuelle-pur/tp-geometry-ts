@@ -42,5 +42,21 @@ describe("test Point", () => {
         expect(p.getType()).to.equal("Point");
 
     })
+
+    it("test envelope sur point", () => {
+        const point = new Point([1.0, 2.0]);
+        const envelope = point.getEnvelope();
+        expect(envelope.isEmpty()).to.be.false;
+        expect(envelope.getXmin()).to.equal(1.0);
+        expect(envelope.getYmin()).to.equal(2.0);
+        expect(envelope.getXmax()).to.equal(1.0);
+        expect(envelope.getYmax()).to.equal(2.0);
+      });
+    
+      it("test envelope vide sur point", () => {
+        const point = new Point();
+        const envelope = point.getEnvelope();
+        expect(envelope.isEmpty()).to.be.true;
+      });
 })
 

@@ -1,5 +1,6 @@
 import Point from "./Point";
 import Geometry from "./Geometry";
+import Envelope from "./Envelope";
 
 export default class LineString implements Geometry {
    private points?: Array<Point>;
@@ -40,6 +41,22 @@ export default class LineString implements Geometry {
       l.push(point.clone());
     }
     return new LineString(l);
+  }
+
+  getEnvelope(): Envelope {
+    if (this.isEmpty()) {
+      return new Envelope(); 
+    }
+
+    const xVals = this.points.map(point => point.x());
+    const yVals = this.points.map(point => point.y());
+
+    const xmin = Math.min(...xVals);
+    const xmax = Math.max(...xVals);
+    const ymin = Math.min(...yVals);
+    const ymax = Math.max(...yVals);
+
+    return new Envelope([xmin, ymin], [xmax, ymax]);
   }
 
 }

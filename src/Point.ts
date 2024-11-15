@@ -1,5 +1,6 @@
 import Coordinate from "./Coordinate";
 import Geometry from "./Geometry";
+import Envelope from "./Envelope";
 
 export default class Point implements Geometry {
   private coordinate?: Coordinate;
@@ -38,5 +39,13 @@ export default class Point implements Geometry {
 
   clone(): Point {
     return new Point([this.x(),this.y()]) ;
+  }
+
+  getEnvelope(): Envelope {
+    
+    if (this.isEmpty()) {
+      return new Envelope(); 
+    }
+    return new Envelope(this.coordinate, this.coordinate); 
   }
 }
