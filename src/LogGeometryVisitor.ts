@@ -3,19 +3,26 @@ import Point from "./Point";
 import LineString from "./LineString";
 
 export default class LogGeometryVisitor implements GeometryVisitor {
+
+    constructor(
+        private log = console.log
+    ){
+
+    }
+
     visitPoint(point: Point): void {
         if (point.isEmpty()) {
-            console.log("Je suis un point vide.");
+            this.log("Je suis un point vide.");
         } else {
-            console.log(`Je suis un point avec x=${point.x()} et y=${point.y()}.`);
+            this.log(`Je suis un point avec x=${point.x()} et y=${point.y()}.`);
         }
     }
 
     visitLineString(lineString: LineString): void {
         if (lineString.isEmpty()) {
-            console.log("Je suis une polyligne vide.");
+            this.log("Je suis une polyligne vide.");
         } else {
-            console.log(`Je suis une polyligne définie par ${lineString.getNumPoints()} point(s).`);
+            this.log(`Je suis une polyligne définie par ${lineString.getNumPoints()} point(s).`);
         }
     }
 }
