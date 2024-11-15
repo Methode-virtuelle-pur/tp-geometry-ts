@@ -24,7 +24,7 @@ export default class LineString implements Geometry {
   }
 
   isEmpty(): boolean {
-    if (null == this.points)
+    if (undefined == this.points)
         return true ;
     else
         return false ;
